@@ -18,9 +18,10 @@ var port = process.env.PORT || 5000;
 // to serve images for public
 
 const corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: true,
     credentials: true,            //access-control-allow-credentials:true
     optionSuccessStatus: 200,
+    'Access-Control-Allow-Origin': 'localhost:3000',
     'Access-Control-Allow-Credentials': 'true'
 }
 
