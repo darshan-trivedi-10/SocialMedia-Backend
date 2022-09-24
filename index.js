@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 
 app.use(express.static('public'));
 app.use('/images', express.static('images'));
-app.use(express.static('public/build'));
+// app.use(express.static('public/build'));
 
 dotenv.config();
 
