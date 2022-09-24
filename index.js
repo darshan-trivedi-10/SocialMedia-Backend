@@ -36,8 +36,13 @@ mongoose.connect(process.env.MONGO_DB, { useNewUrlParser: true, useUnifiedTopolo
 })
 
 
+
 // Usage of Route
 app.use('/auth', AuthRoute);
 app.use('/user', userRoute);
 app.use('/post', postRouter);
 app.use('/upload', uploadRouter);
+
+app.get('/', (req, res) => {
+    res.send('Running . . .');
+})
