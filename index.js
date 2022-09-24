@@ -8,7 +8,7 @@ import dotenv from 'dotenv';
 import AuthRoute from "./Routes/AuthRoute.js";
 import userRoute from './Routes/userRouter.js'
 import postRouter from './Routes/postRouter.js'
-import uploadRouter from '../server/Routes/uploadRouter.js'
+import uploadRouter from './Routes/uploadRouter'
 
 
 const app = express();
