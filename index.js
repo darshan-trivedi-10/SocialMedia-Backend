@@ -26,7 +26,6 @@ app.use('/images', express.static('images'));
 
 dotenv.config();
 
-
 mongoose.connect(process.env.MONGO_DB, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
     app.listen(port, '0.0.0.0', () => {
         console.log('listening')
