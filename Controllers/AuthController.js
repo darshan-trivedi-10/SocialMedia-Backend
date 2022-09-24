@@ -42,7 +42,6 @@ export const LoginUser = async (req, res) => {
                     username: username,
                     id: user._id
                 }, '-->MYSOCI@LMEDI@@PP-->', { expiresIn: '24h' })
-                res.header("Access-Control-Allow-Origin", "true");
                 res.status(200).json(
                     { user, "token": token }
                 );
