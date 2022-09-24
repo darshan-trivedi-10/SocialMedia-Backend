@@ -12,7 +12,7 @@ import uploadRouter from '../server/Routes/uploadRouter.js'
 
 
 const app = express();
-const port = process.env.PORT || 5000;
+var port = process.env.PORT || 5000;
 
 // to serve images for public
 
