@@ -21,8 +21,10 @@ const corsOptions = {
     origin: true,
     credentials: true,            //access-control-allow-credentials:true
     optionSuccessStatus: 200,
-    'Access-Control-Allow-Origin': 'localhost:3000',
-    'Access-Control-Allow-Credentials': 'true'
+    'Access-Control-Allow-Origin': 'https://neon-tarsier-c71778.netlify.app/',
+    'Access-Control-Allow-Credentials': 'true',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, PATCH, POST, DELETE, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type'
 }
 
 app.use(cors(corsOptions));
