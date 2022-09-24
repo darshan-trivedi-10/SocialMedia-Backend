@@ -12,7 +12,7 @@ import uploadRouter from '../server/Routes/uploadRouter.js'
 
 
 const app = express();
-const port=process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
 // to serve images for public
 
@@ -28,7 +28,7 @@ dotenv.config();
 
 
 mongoose.connect(process.env.MONGO_DB, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
-    app.listen(port, () => {
+    app.listen(port, '0.0.0.0', () => {
         console.log('listening')
     })
 }).catch((error) => {
