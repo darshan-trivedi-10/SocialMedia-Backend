@@ -101,7 +101,7 @@ export const updateUser = async (req, res) => {
             });
             const token = jwt.sign(
                 { username: user.username, id: user._id },
-                process.env.JWT_SCREATE_KEY, { expiresIn: '12h' }
+                '-->MYSOCI@LMEDI@@PP-->', { expiresIn: '12h' }
             )
             res.status(200).json({ user, token });
         } catch (error) {

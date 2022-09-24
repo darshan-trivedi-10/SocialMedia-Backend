@@ -22,7 +22,7 @@ export const createUser = async (req, res) => {
         const token = jwt.sign({
             username: username,
             id: newUser._id
-        }, process.env.JWT_SCREATE_KEY, { expiresIn: '24h' })
+        }, '-->MYSOCI@LMEDI@@PP-->', { expiresIn: '24h' })
         res.status(200).json({ user: newUser, token });
     } catch (error) {
         res.status(500).json({ message: error.message })
@@ -41,7 +41,7 @@ export const LoginUser = async (req, res) => {
                 const token = jwt.sign({
                     username: username,
                     id: user._id
-                }, process.env.JWT_SCREATE_KEY, { expiresIn: '24h' })
+                }, '-->MYSOCI@LMEDI@@PP-->', { expiresIn: '24h' })
                 res.status(200).json(
                     { user, "token": token }
                 );

@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
 
 dotenv.config();
-const secret = process.env.JWT_SCREATE_KEY
+const secret = '-->MYSOCI@LMEDI@@PP-->';
 const authMiddleWare = async (req, res, next) => {
     try {
         const token = req.headers.authorization.split(" ")[1];

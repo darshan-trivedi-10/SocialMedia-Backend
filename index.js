@@ -1,7 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
-import cors from 'cors'  
+import cors from 'cors'
 import dotenv from 'dotenv';
 
 // Routers
@@ -26,7 +26,7 @@ app.use('/images', express.static('images'));
 
 dotenv.config();
 
-mongoose.connect(process.env.MONGO_DB, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
+mongoose.connect('mongodb+srv://darshan:tDj0mhMWHdRkggKR@cluster0.knu7pzn.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
     app.listen(port, '0.0.0.0', () => {
         console.log('listening')
     })
