@@ -6,7 +6,7 @@ const userRoute = express.Router();
 userRoute.get('/alluser/:id', authMiddleWare, getAlluser)
 userRoute.get('/followers/:id', authMiddleWare, getAllFollowers)
 userRoute.get('/following/:id', authMiddleWare, getAllFollowing)
-userRoute.get('/:id', authMiddleWare, getUser);
+userRoute.get('/:id', getUser);
 userRoute.get('/username/:username', getUsetbyUsername);
 userRoute.put('/:id', authMiddleWare, updateUser);
 userRoute.delete('/:id', authMiddleWare, deleteUser);
