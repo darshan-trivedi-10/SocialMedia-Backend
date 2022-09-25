@@ -32,6 +32,8 @@ app.use('/images', express.static('images'));
 // app.use(express.static('public/build'));
 
 dotenv.config();
+
+app.use(cors());
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*")
     res.header("Access-Control-Allow-Headers","*")
@@ -45,7 +47,6 @@ app.use((req, res, next) => {
     }
     next()
 })
-app.use(cors({ origin: "http://localhost:3000", credentials: true }))
 mongoose.connect('mongodb+srv://darshan:tDj0mhMWHdRkggKR@cluster0.knu7pzn.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
     app.listen(port, '0.0.0.0', () => {
         console.log('listening')
