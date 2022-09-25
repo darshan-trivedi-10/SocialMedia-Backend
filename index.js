@@ -3,7 +3,6 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from 'cors'
 import dotenv from 'dotenv';
-const cors1 = require('cors');
 
 // Routers
 import AuthRoute from "./Routes/AuthRoute.js";
@@ -48,9 +47,7 @@ app.use((req, res, next) => {
     }
     next()
 })
-app.use(cors({
-    origin: 'https://neon-tarsier-c71778.netlify.app/'
-}));
+app.use(cors());
 
 mongoose.connect('mongodb+srv://darshan:tDj0mhMWHdRkggKR@cluster0.knu7pzn.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
     app.listen(port, '0.0.0.0', () => {
