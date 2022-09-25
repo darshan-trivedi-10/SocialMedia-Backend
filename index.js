@@ -47,8 +47,7 @@ app.use((req, res, next) => {
     }
     next()
 })
-app.use(cors());
-
+app.use(cors({ origin: "http://localhost:3000", credentials: true }))
 mongoose.connect('mongodb+srv://darshan:tDj0mhMWHdRkggKR@cluster0.knu7pzn.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
     app.listen(port, '0.0.0.0', () => {
         console.log('listening')
