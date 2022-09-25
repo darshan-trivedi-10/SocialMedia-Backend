@@ -5,6 +5,7 @@ import jwt from 'jsonwebtoken'
 
 export const createUser = async (req, res) => {
     const { username, password, firstname, lastname } = req.body;
+    console.log(req.body)
     const salt = await bcrypt.genSalt(10);
     const newPassword = await bcrypt.hash(password, salt);
     const newUser = new userModel({
