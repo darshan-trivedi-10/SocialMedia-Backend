@@ -15,9 +15,7 @@ import uploadRouter from './Routes/uploadRouter.js'
 const app = express();
 var port = process.env.PORT || 5000;
 
-app.use(cors({
-    origin:'https://neon-tarsier-c71778.netlify.app/';
-}));
+
 // app.use(function (req, res, next) {
 //     res.header("Access-Control-Allow-Origin", '*');
 //     res.header("Access-Control-Allow-Credentials", true);
@@ -44,6 +42,9 @@ mongoose.connect('mongodb+srv://darshan:tDj0mhMWHdRkggKR@cluster0.knu7pzn.mongod
 })
 
 
+app.use(cors({
+    origin: 'https://neon-tarsier-c71778.netlify.app/'
+}));
 
 
 // Usage of Route
