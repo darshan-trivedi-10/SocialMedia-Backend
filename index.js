@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from 'cors'
 import dotenv from 'dotenv';
+const cors1 = require('cors');
 
 // Routers
 import AuthRoute from "./Routes/AuthRoute.js";
@@ -30,6 +31,10 @@ app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(express.static('public'));
 app.use('/images', express.static('images'));
 // app.use(express.static('public/build'));
+app.use(cors1());
+// app.use(cors({
+//     origin: 'https://neon-tarsier-c71778.netlify.app/'
+// }));
 
 dotenv.config();
 
@@ -42,9 +47,6 @@ mongoose.connect('mongodb+srv://darshan:tDj0mhMWHdRkggKR@cluster0.knu7pzn.mongod
 })
 
 
-app.use(cors({
-    origin: 'https://neon-tarsier-c71778.netlify.app/'
-}));
 
 
 // Usage of Route
