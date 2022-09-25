@@ -14,9 +14,6 @@ import uploadRouter from './Routes/uploadRouter.js'
 
 const app = express();
 var port = process.env.PORT || 5000;
-
-// to serve images for public
-
 const corsOptions = {
     origin: true,
     credentials: true,            //access-control-allow-credentials:true
@@ -26,7 +23,6 @@ const corsOptions = {
     'Access-Control-Allow-Methods': 'GET, POST, PUT, PATCH, POST, DELETE, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type'
 }
-
 app.use(cors(corsOptions));
 app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
@@ -48,6 +44,12 @@ mongoose.connect('mongodb+srv://darshan:tDj0mhMWHdRkggKR@cluster0.knu7pzn.mongod
 
 
 // Usage of Route
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
+    res.setHeader('Access-Control-Allow-Methods', 'Content-Type', 'Authorization');
+    next();
+})
 app.use('/auth', AuthRoute);
 app.use('/user', userRoute);
 app.use('/post', postRouter);
