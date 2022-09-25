@@ -31,12 +31,26 @@ app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(express.static('public'));
 app.use('/images', express.static('images'));
 // app.use(express.static('public/build'));
-app.use(cors1());
-// app.use(cors({
-//     origin: 'https://neon-tarsier-c71778.netlify.app/'
-// }));
 
 dotenv.config();
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
+    res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested, Content-Type, Accept Authorization"
+    )
+    if (req.method === "OPTIONS") {
+        res.header(
+            "Access-Control-Allow-Methods",
+            "POST, PUT, PATCH, GET, DELETE"
+        )
+        return res.status(200).json({})
+    }
+    next()
+})
+app.use(cors({
+    origin: 'https://neon-tarsier-c71778.netlify.app/'
+}));
 
 mongoose.connect('mongodb+srv://darshan:tDj0mhMWHdRkggKR@cluster0.knu7pzn.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
     app.listen(port, '0.0.0.0', () => {
