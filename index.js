@@ -43,3 +43,7 @@ app.use('/auth', AuthRoute);
 app.use('/user', userRoute);
 app.use('/post', postRouter);
 app.use('/upload', uploadRouter);
+
+app.use('/', (req, res) => {
+    res.send('Running . . .');
+})    
